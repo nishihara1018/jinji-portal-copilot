@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  widget:
+    build:
+      context: ./widget
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - bff
+    networks:
+      - app-network
+
+  bff:
+    build:
+      context: ./bff
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - API_URL=http://api:3001
+    depends_on:
+      - api
+    networks:
+      - app-network
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
