@@ -5,10 +5,10 @@ phases:
     runtime-versions:
       nodejs: 20
     commands:
-      - echo "Installing AWS Copilot CLI..."
-      - curl -Lo copilot https://github.com/aws/copilot-cli/releases/latest/download/copilot-linux
-      - chmod +x copilot
-      - mv copilot /usr/local/bin/copilot
+# /usr/local/bin に直接入れるのではなく、一度 temp に落として権限をつけてから移動
+      - sudo curl -Lo /usr/local/bin/copilot https://github.com/aws/copilot-cli/releases/latest/download/copilot-linux
+      - sudo chmod +x /usr/local/bin/copilot
+      - copilot --version
 
   build:
     commands:
