@@ -5,7 +5,7 @@ source:
   provider: GitHub
   properties:
     branch: main
-    repository: https://github.com/your-username/jinji-portal-copilot
+    repository: https://github.com/nishihara1018/jinji-portal-copilot
 
 stages:
   - name: test
