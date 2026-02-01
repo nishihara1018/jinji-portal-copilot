@@ -115,8 +115,8 @@ function getStatusLabel(status: EmployeeStatus): string {
 /**
  * Get status tag type
  */
-function getStatusType(status: EmployeeStatus): string {
-  const types: Record<EmployeeStatus, string> = {
+function getStatusType(status: EmployeeStatus): 'success' | 'warning' | 'info' | 'primary' | 'danger' {
+  const types: Record<EmployeeStatus, 'success' | 'warning' | 'info'> = {
     Active: 'success',
     OnLeave: 'warning',
     Terminated: 'info',
