@@ -1,0 +1,12 @@
+name: jinji-portal-copilot-main
+version: 1
+
+source:
+  provider: GitHub
+  properties:
+    branch: main
+    repository: https://github.com/your-username/jinji-portal-copilot
+
+stages:
+  - name: test
+    requires_approval: false

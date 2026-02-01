@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - echo "Installing AWS Copilot CLI..."
+      - curl -Lo copilot https://github.com/aws/copilot-cli/releases/latest/download/copilot-linux
+      - chmod +x copilot
+      - mv copilot /usr/local/bin/copilot
+
+  build:
+    commands:
+      - echo "Building services..."
+      - ls -la
+      - copilot --version
+
+  post_build:
+    commands:
+      - ls -la
