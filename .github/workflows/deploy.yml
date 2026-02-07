@@ -8,6 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: [api, bff, widget] # ここに並列実行したいサービスを並べる
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -29,7 +32,4 @@ jobs:
 
       - name: Deploy Services
         run: |
-          # 3つのサービスを順番にデプロイ
-          copilot svc deploy --name api --env test --app mai-app
-          copilot svc deploy --name bff --env test --app mai-app
-          copilot svc deploy --name widget --env test --app mai-app
+          copilot svc deploy --name ${{ matrix.service }} --env test --app mai-app
