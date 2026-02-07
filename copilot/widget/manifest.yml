@@ -10,9 +10,9 @@ type: Load Balanced Web Service
 http:
   # Requests to this path will be forwarded to your service.
   # To match all requests you can use the "/" path.
-  path: 'widget'
+  path: '/'
   # You can specify a custom health check path. The default is "/".
-  healthcheck: '/health'
+  healthcheck: '/widget'
   allowed_ips: ["162.120.184.17/32"]
 
 # Configuration for your containers and service.
